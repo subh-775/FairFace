@@ -63,13 +63,15 @@ def predidct_age_gender_race(save_prediction_at, imgs_path = 'cropped_faces/'):
 
     model_fair_7 = torchvision.models.resnet34(pretrained=True)
     model_fair_7.fc = nn.Linear(model_fair_7.fc.in_features, 18)
-    model_fair_7.load_state_dict(torch.load('fair_face_models/fairface_alldata_20191111.pt'))
+    # model_fair_7.load_state_dict(torch.load('fair_face_models/fairface_alldata_20191111.pt'))
+    model_fair_7.load_state_dict(torch.load('fair_face_models/res34_fair_align_multi_7_20190809.pt'))
     model_fair_7 = model_fair_7.to(device)
     model_fair_7.eval()
 
     model_fair_4 = torchvision.models.resnet34(pretrained=True)
     model_fair_4.fc = nn.Linear(model_fair_4.fc.in_features, 18)
-    model_fair_4.load_state_dict(torch.load('fair_face_models/fairface_alldata_4race_20191111.pt'))
+    # model_fair_4.load_state_dict(torch.load('fair_face_models/fairface_alldata_4race_20191111.pt'))
+    model_fair_4.load_state_dict(torch.load('fair_face_models/res34_fair_align_multi_4_20190809.pt'))
     model_fair_4 = model_fair_4.to(device)
     model_fair_4.eval()
 
