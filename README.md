@@ -46,7 +46,7 @@ Karkkainen, K., & Joo, J. (2021). FairFace: Face Attribute Dataset for Balanced 
 
 #### Results
 
-The results will be saved at "test_outputs.csv" (located in the same folder as predict.py, see sample [here](https://github.com/dchen236/FairFace/blob/master/test_outputs.csv)
+The results will be saved at "test_outputs.csv" (located in the same folder as predict.py)
 
 ### UPDATES: 
 
