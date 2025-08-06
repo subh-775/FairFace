@@ -20,30 +20,32 @@ Karkkainen, K., & Joo, J. (2021). FairFace: Face Attribute Dataset for Balanced 
 ![](https://github.com/dchen236/FairFace/blob/master/examples/female.png)
 ![](https://github.com/dchen236/FairFace/blob/master/examples/male.png)
 
-### Instructions to use FairFace
+### Instructions to use FairFace in Kaggle Environment
 
-- Download or Clone this repo
-- Install Dependencies
-   1. Please follow the [Pytorch's official documentation](https://pytorch.org/get-started/locally/) to install Pytorch
-   2. Please also install dlib, if you have pip installed on your system. Simply type the following command on your terminal.
+- ### clone the repo
+  ```
+  !git clone https://github.com/subh-775/FairFace.git
+  %cd FairFace
+  ```
+ ### Download the models inside dlib
+  ```
+  # !mkdir -p fair_face_models
+  %cd dlib_models/
+  !gdown --id 113QMzQzkBDmYMs9LwzvD-jxEZdBQ5J4X -O res34_fair_align_multi_7_20190809.pt
+  !gdown --id 1kXdAsqT8YiNYIMm8p5vQUvNFwhBbT4vQ -O res34_fair_align_multi_4_20190809.pt
+  %cd ..
+  ```
+- Two models are included, **race_4** model predicts race as White, Black, Asian and Indian and **race_7** model predicts races as White, Black, Latino_Hispanic, East, Southeast Asian, Indian, Middle Eastern.
+  
+### Run script predict.py (Arrange data folder and csv file containing image path accordingly)
+  ```
+  !python3 predict.py --csv data_img.csv
+  ```
 
-   ```
-   pip install dlib
-   ```
-- Download our models
-   Download our pretrained models from [here](https://drive.google.com/drive/folders/1F_pXfbzWvG-bhCpNsRj6F_xsdjpesiFu?usp=sharing) and save it in the same folder as where predict.py is located. Two models are included, race_4 model predicts race as White, Black, Asian and Indian and race_7 model predicts races as White, Black, Latino_Hispanic, East, Southeast Asian, Indian, Middle Eastern.
-- Unzip the downloaded FairFace model as well as dlib face detection models in dlib_models.
-- Prepare the images
-   - prepare a csv and provide the paths of testing images where the colname name of testing images is "img_path" (see our [template csv file](https://github.com/dchen236/FairFace/blob/master/test_imgs.csv).
+ The results will be available at detected_faces (in case dlib detect multiple faces in one image, we save them here) and test_outputs.csv.
 
-
-### Run script predict.py
-Run the predict.py script and provide the csv path (described in the section above).
-```
-python3 predict.py --csv "NAME_OF_CSV"
-```
-After download this repository, you can run `python3 predict.py --csv test_imgs.csv`, the results will be available at detected_faces (in case dlib detect multiple faces in one image, we save them here) and test_outputs.csv.
 #### Results
+
 The results will be saved at "test_outputs.csv" (located in the same folder as predict.py, see sample [here](https://github.com/dchen236/FairFace/blob/master/test_outputs.csv)
 
 ### UPDATES: 
