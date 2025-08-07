@@ -48,6 +48,11 @@ Karkkainen, K., & Joo, J. (2021). FairFace: Face Attribute Dataset for Balanced 
 
  The results will be available at detected_faces (in case dlib detect multiple faces in one image, we save them here) and test_outputs.csv.
 
+### remove the 5 already created entries
+```
+!python3 removerace.py --csv test_outputs.csv
+```
+
 #### Results
 
 The results will be saved at "test_outputs.csv" (located in the same folder as predict.py)
