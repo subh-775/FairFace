@@ -22,7 +22,7 @@ Karkkainen, K., & Joo, J. (2021). FairFace: Face Attribute Dataset for Balanced 
 
 ### Instructions to use FairFace in Kaggle Environment
 
-- ### clone the repo
+  ### clone the repo
   ```
   !git clone https://github.com/subh-775/FairFace.git
   %cd FairFace
@@ -35,11 +35,15 @@ Karkkainen, K., & Joo, J. (2021). FairFace: Face Attribute Dataset for Balanced 
   !gdown --id 1kXdAsqT8YiNYIMm8p5vQUvNFwhBbT4vQ -O res34_fair_align_multi_4_20190809.pt
   %cd ..
   ```
-- Two models are included, **race_4** model predicts race as White, Black, Asian and Indian and **race_7** model predicts races as White, Black, Latino_Hispanic, East, Southeast Asian, Indian, Middle Eastern.
+ Two models are included, **race_4** model predicts race as White, Black, Asian and Indian and **race_7** model predicts races as White, Black, Latino_Hispanic, East, Southeast Asian, Indian, Middle Eastern.
   
 ### Run script predict.py (Arrange data folder and csv file containing image path accordingly)
   ```
   !python3 predict.py --csv data_img.csv
+  ```
+### Alternatively If you want one-to-one mapping between input faces and corresponding attributes you can use predict_with_conf.py as
+  ```
+  !python3 predict_with_conf.py --csv data_img.csv
   ```
 
  The results will be available at detected_faces (in case dlib detect multiple faces in one image, we save them here) and test_outputs.csv.
